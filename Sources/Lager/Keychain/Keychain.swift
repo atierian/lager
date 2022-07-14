@@ -27,10 +27,10 @@ extension String {
 }
 
 public struct Keychain {
-    let service: String
-    let accessGroup: String?
+    static var service: String = "com.hello"
+    static var accessGroup: String? = nil
     
-    func set(
+    public static func set(
         _ data: Data,
         forKey key: String,
         withAccessibility accessibility: Accessibility
@@ -55,7 +55,7 @@ public struct Keychain {
         }
     }
     
-    func update(
+    public static func update(
         _ value: Data,
         forKey key: String,
         withAccessibilitiy accessibility: Accessibility
@@ -76,7 +76,7 @@ public struct Keychain {
         }
     }
     
-    func int(
+    public static func int(
         forKey key: String,
         withAccessibility accessibility: Accessibility
     ) throws -> Int {
@@ -87,7 +87,7 @@ public struct Keychain {
         return n.intValue
     }
     
-    func float(
+    public static func float(
         forKey key: String,
         withAccessibility accessibility: Accessibility
     ) throws -> Float {
@@ -98,7 +98,7 @@ public struct Keychain {
         return n.floatValue
     }
     
-    func double(
+    public static func double(
         forKey key: String,
         withAccessibility accessibility: Accessibility
     ) throws -> Double {
@@ -109,7 +109,7 @@ public struct Keychain {
         return n.doubleValue
     }
     
-    func bool(
+    public static func bool(
         forKey key: String,
         withAccessibility accessibility: Accessibility
     ) throws -> Bool {
@@ -120,7 +120,7 @@ public struct Keychain {
         return n.boolValue
     }
     
-    func string(
+    public static func string(
         forKey key: String,
         withAccessibility accessibility: Accessibility
     ) throws -> String {
@@ -136,7 +136,7 @@ public struct Keychain {
         return string
     }
     
-    func object(
+    public static func object(
         forKey key: String,
         withAccessibility accessibility: Accessibility
     ) throws -> NSCoding {
@@ -155,7 +155,7 @@ public struct Keychain {
         return coding
     }
     
-    func data(
+    public static func data(
         forKey key: String,
         withAccessibility accessibility: Accessibility
     ) throws -> Data {
@@ -184,27 +184,27 @@ public struct Keychain {
         return data
     }
     
-    private func queryDict(
+    static private func queryDict(
         forKey key: String,
         withAccessibilitiy accessibility: Accessibility
     ) -> [String: Any] {
         let identifier = Data(key.utf8)
         var query: [String: Any] = [
             .secClass: kSecClassGenericPassword,
-            .secAttrService: service,
+            .secAttrService: Self.service,
             .secAttrAccessible: accessibility.kSecAttrAccessible,
             .secAttrGeneric: identifier,
             .secAttrAccount: identifier
         ]
         
-        if let accessGroup = accessGroup {
+        if let accessGroup = Self.accessGroup {
             query[.secAttrAccessGroup] = accessGroup
         }
         
         return query
     }
     
-    public func set(
+    static public func set(
         _ value: Bool,
         forKey key: String,
         withAccessibility accessibility: Accessibility = .whenUnlocked
@@ -216,7 +216,7 @@ public struct Keychain {
         )
     }
     
-    func set(
+    public static func set(
         _ value: NSCoding,
         forKey key: String,
         withAccessibility accessibility: Accessibility
@@ -233,7 +233,7 @@ public struct Keychain {
         )
     }
     
-    func delete(key: String, withAccessibility accessibility: Accessibility) throws {
+    public static func delete(key: String, withAccessibility accessibility: Accessibility) throws {
         let query = queryDict(
             forKey: key,
             withAccessibilitiy: accessibility
@@ -246,7 +246,7 @@ public struct Keychain {
         }
     }
     
-    static func wipe(_ classes: CFString...) throws {
+    public static func wipe(_ classes: CFString...) throws {
         try classes.forEach(deleteData(forSecClass:))
     }
     
@@ -261,10 +261,10 @@ public struct Keychain {
         }
     }
     
-    init(service: String, accessGroup: String?) {
-        self.service = service
-        self.accessGroup = accessGroup
-    }
+//    init(service: String, accessGroup: String?) {
+//        self.service = service
+//        self.accessGroup = accessGroup
+//    }
 }
 
 
