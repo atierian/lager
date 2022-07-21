@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		5E41796A287F9186008E9811 /* HostAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E417969287F9186008E9811 /* HostAppApp.swift */; };
-		5E41796C287F9186008E9811 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E41796B287F9186008E9811 /* ContentView.swift */; };
+		5E41796C287F9186008E9811 /* KeychainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E41796B287F9186008E9811 /* KeychainView.swift */; };
 		5E41796E287F9187008E9811 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E41796D287F9187008E9811 /* Assets.xcassets */; };
 		5E417971287F9187008E9811 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5E417970287F9187008E9811 /* Preview Assets.xcassets */; };
 		5E41797B287F9187008E9811 /* HostAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5E41797A287F9187008E9811 /* HostAppTests.swift */; };
@@ -38,7 +38,7 @@
 /* Begin PBXFileReference section */
 		5E417966287F9186008E9811 /* HostApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HostApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E417969287F9186008E9811 /* HostAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostAppApp.swift; sourceTree = "<group>"; };
-		5E41796B287F9186008E9811 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		5E41796B287F9186008E9811 /* KeychainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainView.swift; sourceTree = "<group>"; };
 		5E41796D287F9187008E9811 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5E417970287F9187008E9811 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5E417976287F9187008E9811 /* HostAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HostAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -103,7 +103,7 @@
 			children = (
 				5E417999287F9506008E9811 /* ActionPreviewView.swift */,
 				5E417969287F9186008E9811 /* HostAppApp.swift */,
-				5E41796B287F9186008E9811 /* ContentView.swift */,
+				5E41796B287F9186008E9811 /* KeychainView.swift */,
 				5E41796D287F9187008E9811 /* Assets.xcassets */,
 				5E41796F287F9187008E9811 /* Preview Content */,
 			);
@@ -275,7 +275,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5E41796C287F9186008E9811 /* ContentView.swift in Sources */,
+				5E41796C287F9186008E9811 /* KeychainView.swift in Sources */,
 				5E41799A287F9506008E9811 /* ActionPreviewView.swift in Sources */,
 				5E41796A287F9186008E9811 /* HostAppApp.swift in Sources */,
 			);

@@ -8,7 +8,7 @@
 import SwiftUI
 import Lager
 
-struct ContentView: View {
+struct KeychainView: View {
     
     var models: [ActionPreviewView.Model] = []
     
@@ -22,7 +22,11 @@ struct ContentView: View {
     
     func persist() {
         do {
-            try Lager.Keychain.set(true, forKey: "io.coffee.boolean", withAccessibility: .afterFirstUnlock)
+            try Lager.Keychain.set(
+                true,
+                forKey: "io.coffee.boolean",
+                withAccessibility: .afterFirstUnlock
+            )
             print("Persisted!")
         } catch {
             print(error)
@@ -31,7 +35,10 @@ struct ContentView: View {
     
     func query() {
         do {
-            let value = try Lager.Keychain.bool(forKey: "io.coffee.boolean", withAccessibility: .afterFirstUnlock)
+            let value = try Lager.Keychain.bool(
+                forKey: "io.coffee.boolean",
+                withAccessibility: .afterFirstUnlock
+            )
             print("Queried with result: \(value)")
         } catch {
             print(error)
@@ -40,7 +47,10 @@ struct ContentView: View {
     
     func delete() {
         do {
-            try Lager.Keychain.delete(key: "io.coffee.boolean", withAccessibility: .afterFirstUnlock)
+            try Lager.Keychain.delete(
+                key: "io.coffee.boolean",
+                withAccessibility: .afterFirstUnlock
+            )
             print("Deleted!")
         } catch {
             print(error)
@@ -49,11 +59,5 @@ struct ContentView: View {
     
     var body: some View {
         ActionPreviewView(actions: models)
-    }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
     }
 }
